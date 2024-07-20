@@ -1,86 +1,98 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import services.Service;
 import services.Models;
+import services.CreateModels;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        List<Models> models = testcase();
-        for (Models model : models) {
-            System.out.println(model.getBrand() + " " + model.getModel() + " " + model.getCPU() + " " + model.getRAM() + " " + model.getSSD() + " " + model.getScreen() + " " + model.getColor());
-        }
+        List<Models> modelsList = createModel(10);
+        Service Laptop = new Service(modelsList);
+        System.out.println(Laptop);
 
     }
 
-    public static List<Models> testcase() {
-
+    public static List<Models> createModel(int quantity) {
         List<String> brands = new ArrayList<>();
-        brands.add("Acer");
-        brands.add("Apple");
-        brands.add("Asus");
-        brands.add("Dell");
-        brands.add("HP");
-        brands.add("Lenovo");
-        brands.add("LG");
-        brands.add("MSI");
-        brands.add("Samsung");
-        brands.add("Toshiba");
-        brands.add("Xiaomi");
-        brands.add("ZTE");
+        brands.addAll(Arrays.asList(
+                "Acer",
+                "Apple",
+                "Asus",
+                "Dell",
+                "HP",
+                "Lenovo",
+                "LG",
+                "msi",
+                "Samsung",
+                "Toshiba",
+                "Xiaomi",
+                "ZTE"
+        ));
 
         List<String> CPUs = new ArrayList<>();
-        CPUs.add("Intel Core i3");
-        CPUs.add("Intel Core i5");
-        CPUs.add("Intel Core i7");
-        CPUs.add("Intel Core i9");
-        CPUs.add("AMD Ryzen 3");
-        CPUs.add("AMD Ryzen 5");
-        CPUs.add("AMD Ryzen 7");
-        CPUs.add("AMD Ryzen 9");
+        CPUs.addAll(Arrays.asList(
+                "Intel Core i3",
+                "Intel Core i5",
+                "Intel Core i7",
+                "Intel Core i9",
+                "AMD Ryzen 3",
+                "AMD Ryzen 5",
+                "AMD Ryzen 7",
+                "AMD Ryzen 9"
+        ));
 
         List<Integer> RAMs = new ArrayList<>();
-        RAMs.add(4);
-        RAMs.add(8);
-        RAMs.add(16);
-        RAMs.add(32);
-        RAMs.add(64);
-        RAMs.add(128);
-        RAMs.add(256);
-        RAMs.add(512);
+        RAMs.addAll(Arrays.asList(
+                4,
+                8,
+                16,
+                32,
+                64,
+                128,
+                256,
+                512
+        ));
 
         List<Integer> screens = new ArrayList<>();
-        screens.add(13);
-        screens.add(14);
-        screens.add(15);
-        screens.add(16);
-        screens.add(17);
+        screens.addAll(Arrays.asList(
+                13,
+                14,
+                15,
+                16,
+                17
+        ));
 
         List<String> colors = new ArrayList<>();
-        colors.add("Black");
-        colors.add("Silver");
-        colors.add("Gold");
-        colors.add("White");
-        colors.add("Blue");
-        colors.add("Red");
-        colors.add("Green");
-        colors.add("Purple");
-        colors.add("Orange");
-        colors.add("Yellow");
+        colors.addAll(Arrays.asList(
+                "Black",
+                "Silver",
+                "Gold",
+                "White",
+                "Blue",
+                "Red",
+                "Green",
+                "Purple",
+                "Orange",
+                "Yellow"
+        ));
 
         List<Integer> SSDs = new ArrayList<>();
-        SSDs.add(256);
-        SSDs.add(512);
-        SSDs.add(1024);
-        SSDs.add(2048);
-        SSDs.add(4096);
+        SSDs.addAll(Arrays.asList(
+                128,
+                256,
+                512,
+                1024,
+                2048
+        ));
 
-        Service services = new Service();
-        services.addModel(new Models(services.addRandomModel(brands, CPUs, RAMs, SSDs, screens, colors)));
-
-        return services.getModelsList();
-}
-
+        List<Models> laptops = new ArrayList<>();
+        for (int i = 0; i < quantity; i++) {
+            laptops.add(new CreateModels().addRandomModel(brands, CPUs, RAMs, SSDs, screens, colors));
+        }
+        return laptops;
+    }
 }

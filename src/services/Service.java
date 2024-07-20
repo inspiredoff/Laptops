@@ -1,28 +1,44 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import java.util.List;
 
 public class Service {
     private List<Models> modelsList;
 
+    public Service() {
+        modelsList = new ArrayList<>();
+    }
+
     public Service(List<Models> modelsList) {
         this.modelsList = modelsList;
     }
 
-    public Service() {
-        this.modelsList = new ArrayList<>();
-    }
-
     public void addModel(Models model) {
-        modelsList.add(model);
+        modelsList.add(new Models(model));
     }
 
-    public List<Models> getModelsList() {
-        return modelsList;
+    public void removeModel(Models model) {
+        modelsList.remove(model);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Models model : modelsList) {
+            sb.append("Brand : "+model.getBrand() + "\n"
+                    +"Model : "+ model.getModel() + "\n"
+                    +"CPU : " + model.getCPU() + "\n"
+                    + "RAM : " + model.getRAM() + "\n"
+                    + "SSD : " + model.getSSD() + "\n"
+                    + "Screen : " + model.getScreen() + "\n"
+                    + "Color : " + model.getColor()+"\n"
+                    + "--------------------------------------------------"+"\n");
+        };
+        return sb.toString();
+    }
+
 
     public List<Models> filterByBrand(String brand) {
         return modelsList.stream().filter(model -> model.getBrand().equals(brand)).toList();
@@ -47,39 +63,4 @@ public class Service {
     public List<Models> filterBySSD(int SSD) {
         return modelsList.stream().filter(model -> model.getSSD() == SSD).toList();
     }
-
-    private String generateRandomString(int length) {
-        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        int rnd_length = random.nextInt(length);
-        StringBuilder sb = new StringBuilder(rnd_length);
-        for (int i = 0; i < rnd_length; i++) {
-            sb.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
-        }
-        return sb.toString();
-    }
-
-    public Models addRandomModel(List<String> brands,
-                                 List<String> CPUs,
-                                 List<Integer> RAMs,
-                                 List<Integer> SSDs,
-                                 List<Integer> screens,
-                                 List<String> colors) {
-        String brand = brands.get((int) (Math.random() * brands.size()));
-        String model = generateRandomString(10);
-        String CPU = CPUs.get((int) (Math.random() * CPUs.size()));
-        int RAM = RAMs.get((int) (Math.random() * RAMs.size()));
-        int SSD = SSDs.get((int) (Math.random() * SSDs.size()));
-        int screen = screens.get((int) (Math.random() * screens.size()));
-        String color = colors.get((int) (Math.random() * colors.size()));
-        return new Models(brand, model, CPU, RAM, SSD, screen, color);
-
-    }
-
-
-
-
-
-
-
 }
