@@ -13,7 +13,6 @@ public class Models {
 
 
     public Models(String brand, String model, String CPU, int RAM, int SSD, int screen, String color) {
-        this.id++;
         this.brand = brand;
         this.model = model;
         this.CPU = CPU;
@@ -23,15 +22,12 @@ public class Models {
         this.color = color;
     }
 
-    public Models(Models models) {
-        this.id = models.id;
-        this.brand = models.brand;
-        this.model = models.model;
-        this.CPU = models.CPU;
-        this.RAM = models.RAM;
-        this.SSD = models.SSD;
-        this.screen = models.screen;
-        this.color = models.color;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getBrand() {

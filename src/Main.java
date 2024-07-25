@@ -12,7 +12,9 @@ public class Main {
     public static void main(String[] args) {
         List<Models> modelsList = createModel(10);
         Service Laptop = new Service(modelsList);
-        System.out.println(Laptop);
+//        System.out.println(Laptop);
+        Service filter = new Service(Laptop.filterBySSD(256));
+        System.out.println(filter);
 
     }
 

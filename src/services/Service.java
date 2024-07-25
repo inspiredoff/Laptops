@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
+    private int models_id;
     private List<Models> modelsList;
 
     public Service() {
@@ -16,18 +17,32 @@ public class Service {
     }
 
     public void addModel(Models model) {
-        modelsList.add(new Models(model));
+        modelsList.add(model);
     }
 
     public void removeModel(Models model) {
         modelsList.remove(model);
     }
 
+
+    public String toString(Models model) {
+        return "id : " + model.getId() + "\n" +
+                "Brand : "+model.getBrand() + "\n"
+                +"Model : "+ model.getModel() + "\n"
+                +"CPU : " + model.getCPU() + "\n"
+                + "RAM : " + model.getRAM() + "\n"
+                + "SSD : " + model.getSSD() + "\n"
+                + "Screen : " + model.getScreen() + "\n"
+                + "Color : " + model.getColor()+"\n"
+                + "--------------------------------------------------"+"\n";
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Models model : modelsList) {
-            sb.append("Brand : "+model.getBrand() + "\n"
+            sb.append("id : " + model.getId() + "\n" +
+                    "Brand : "+model.getBrand() + "\n"
                     +"Model : "+ model.getModel() + "\n"
                     +"CPU : " + model.getCPU() + "\n"
                     + "RAM : " + model.getRAM() + "\n"
@@ -39,6 +54,10 @@ public class Service {
         return sb.toString();
     }
 
+
+    public Models getModel(int id) {
+        return modelsList.stream().filter(model -> model.getId() == id).findFirst().orElse(null);
+    }
 
     public List<Models> filterByBrand(String brand) {
         return modelsList.stream().filter(model -> model.getBrand().equals(brand)).toList();
