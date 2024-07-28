@@ -1,34 +1,34 @@
 package services;
 
-import java.util.ArrayList;
+import model_laptop.Model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class Service {
     private int models_id;
-    private List<Models> modelsList;
+    private List<Model> modelsList;
 
     public Service() {
         modelsList = new ArrayList<>();
     }
 
-    public Service(List<Models> modelsList) {
-        this.modelsList = modelsList;
-    }
 
-    public void addModel(Models model) {
+    public void addModel(Model model) {
         modelsList.add(model);
     }
 
-    public void removeModel(Models model) {
+    public void removeModel(Model model) {
         modelsList.remove(model);
     }
 
 
-    public String toString(Models model) {
+    public String toString(Model model) {
         return "id : " + model.getId() + "\n" +
                 "Brand : "+model.getBrand() + "\n"
-                +"Model : "+ model.getModel() + "\n"
+                +"model_laptop.Model : "+ model.getModel() + "\n"
                 +"CPU : " + model.getCPU() + "\n"
                 + "RAM : " + model.getRAM() + "\n"
                 + "SSD : " + model.getSSD() + "\n"
@@ -40,10 +40,10 @@ public class Service {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Models model : modelsList) {
+        for (Model model : modelsList) {
             sb.append("id : " + model.getId() + "\n" +
                     "Brand : "+model.getBrand() + "\n"
-                    +"Model : "+ model.getModel() + "\n"
+                    +"model_laptop.Model : "+ model.getModel() + "\n"
                     +"CPU : " + model.getCPU() + "\n"
                     + "RAM : " + model.getRAM() + "\n"
                     + "SSD : " + model.getSSD() + "\n"
@@ -55,31 +55,31 @@ public class Service {
     }
 
 
-    public Models getModel(int id) {
+    public Model getModel(int id) {
         return modelsList.stream().filter(model -> model.getId() == id).findFirst().orElse(null);
     }
 
-    public List<Models> filterByBrand(String brand) {
+    public List<Model> filterByBrand(String brand) {
         return modelsList.stream().filter(model -> model.getBrand().equals(brand)).toList();
     }
 
-    public List<Models> filterByCPU(String CPU) {
+    public List<Model> filterByCPU(String CPU) {
         return modelsList.stream().filter(model -> model.getCPU().equals(CPU)).toList();
     }
 
-    public List<Models> filterByColor(String color) {
+    public List<Model> filterByColor(String color) {
         return modelsList.stream().filter(model -> model.getColor().equals(color)).toList();
     }
 
-    public List<Models> filterByScreen(int screen) {
+    public List<Model> filterByScreen(int screen) {
         return modelsList.stream().filter(model -> model.getScreen() == screen).toList();
     }
 
-    public List<Models> filterByRAM(int RAM) {
+    public List<Model> filterByRAM(int RAM) {
         return modelsList.stream().filter(model -> model.getRAM() == RAM).toList();
     }
 
-    public List<Models> filterBySSD(int SSD) {
+    public List<Model> filterBySSD(int SSD) {
         return modelsList.stream().filter(model -> model.getSSD() == SSD).toList();
     }
 }

@@ -1,8 +1,8 @@
-package services;
+package model_laptop;
 
-public class Models {
+public class Model {
 
-    private int id = 0;
+    private int id;
     private String brand;
     private String model;
     private String CPU;
@@ -12,7 +12,7 @@ public class Models {
     private String color;
 
 
-    public Models(String brand, String model, String CPU, int RAM, int SSD, int screen, String color) {
+    public Model(String brand, String model, String CPU, int RAM, int SSD, int screen, String color) {
         this.brand = brand;
         this.model = model;
         this.CPU = CPU;
