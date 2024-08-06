@@ -1,8 +1,6 @@
 package presenter;
 
-import java.util.List;
-
-import service.Service;
+import service.service.Service;
 import view.View;
 
 public class Presenter {
@@ -31,15 +29,15 @@ public class Presenter {
 									color);
 	}
 	
-	public void createRandomLaptops(List <String> brands,
-									List<String> CPUs,
-									List<Integer> RAMs,
-									List<Integer> SSDs,
-									List<Integer> screens,
-									List<String> colors,
-									int length){
-		service.createRandomLaptops(brands, CPUs, RAMs, SSDs, screens, colors, length);
-	}
+//	public void createRandomLaptops(List <String> brands,
+//									List<String> CPUs,
+//									List<Integer> RAMs,
+//									List<Integer> SSDs,
+//									List<Integer> screens,
+//									List<String> colors,
+//									int length){
+//		service.createRandomLaptops(brands, CPUs, RAMs, SSDs, screens, colors, length);
+//	}
 
 	public void filterLaptopsByBrand(String brand){
 		service.filterLaptopsByBrand(brand);

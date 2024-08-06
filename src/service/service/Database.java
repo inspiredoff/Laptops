@@ -1,15 +1,17 @@
-package service;
+package service.service;
+
+import service.model_laptop.Laptop;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model_laptop.Laptop;
+
 
 public class Database {
-    private List<Laptop> laptops;
+    private List<Laptop> laptops = new ArrayList<>();
 
     public Database() {
-        this.laptops = new ArrayList<>();
+        laptops = new ArrayList<>();
     }
 
     public List<Laptop> getLaptops() {
@@ -20,8 +22,8 @@ public class Database {
         this.laptops = laptops;
     }
 
-    public void addLaptops(Laptop...laptops){
-        this.laptops.addAll(List.of(laptops));
+    public void addLaptops(Laptop laptop){
+        this.laptops.add(laptop);
     }
 
     public Laptop getLaptop(int id){

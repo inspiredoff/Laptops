@@ -1,23 +1,20 @@
-package service;
+package service.service;
 
-import java.util.List;
-
-import model_laptop.Laptop;
-import model_laptop.LaptopBuilder;
+import service.model_laptop.Laptop;
+import service.model_laptop.LaptopBuilder;
 
 public class Service {
 	private Laptop laptop;
 	private LaptopBuilder laptopbuilder;
 	private Director director;
-	private LaptopFilterService filterService;
+	private LaptopFilterService filterService = new LaptopFilterService();
 	private Database database;
 	
 
 	public Service(){
 		this.laptopbuilder = new LaptopBuilder();
         this.director = new Director(laptopbuilder);
-		this.filterService = new LaptopFilterService();
-		this.database = new Database();
+        this.database = director.getDatabase();
 
 	}
     public void createManualLaptop(String brand,
@@ -27,8 +24,8 @@ public class Service {
 									Integer SSD,
 									Integer screen,
 									String color){
-        this.laptop = director.constructLaptop(brand, model, CPU, RAM, SSD, screen, color);
-		this.database.addLaptops(laptop);
+        director.constructLaptop(brand, model, CPU, RAM, SSD, screen, color);
+//		this.database.addLaptops(laptop);
 	}
 
 	public void printLaptop(){

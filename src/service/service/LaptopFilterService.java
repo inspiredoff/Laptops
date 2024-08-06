@@ -1,11 +1,11 @@
-package service;
+package service.service;
 
-import java.lang.reflect.Array;
+import service.model_laptop.Laptop;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import model_laptop.Laptop;
+
 
 
 public class LaptopFilterService {

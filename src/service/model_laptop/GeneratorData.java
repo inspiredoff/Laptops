@@ -1,4 +1,4 @@
-package model_laptop;
+package service.model_laptop;
 
 import java.util.List;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package model_laptop;
+package service.model_laptop;
 
 public class LaptopBuilder implements Builder {
     private int id;

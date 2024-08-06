@@ -1,12 +1,8 @@
-package service;
+package service.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import model_laptop.Builder;
-import model_laptop.GeneratorData;
-import model_laptop.Laptop;
+import service.model_laptop.Builder;
+import service.model_laptop.GeneratorData;
+import service.model_laptop.Laptop;
 
 public class Director {
 
@@ -15,19 +11,17 @@ public class Director {
 
     public Director (Builder builder) {
         this.builder = builder;
-        
-
-
+        this.database = new Database();
     }
 
     public Laptop constructLaptop(String brand,
-                                String model,
-                                String CPU,
-                                Integer RAM,
-                                Integer SSD,
-                                Integer screen,
-                                String color) {
-        return builder
+                                  String model,
+                                  String CPU,
+                                  Integer RAM,
+                                  Integer SSD,
+                                  Integer screen,
+                                  String color) {
+        Laptop laptop = builder
                 .setId()
                 .setBrand(brand)
                 .setModel(model)
@@ -37,12 +31,14 @@ public class Director {
                 .setScreen(screen)
                 .setColor(color)
                 .build();
+        database.addLaptops(laptop);
+        return laptop;
     }
 
     public void createRandomLaptops(int length) {
         
         for (int i = 0; i< length; i++) {
-            database.addLaptops(constructLaptop(
+             Laptop laptop = constructLaptop(
                                 GeneratorData.rndChoiseElemList(new DatabaseParam().getBrands()),
                                 GeneratorData.createRndModel(10), 
                                 GeneratorData.rndChoiseElemList(new DatabaseParam().getCPUs()),
@@ -50,8 +46,13 @@ public class Director {
                                 GeneratorData.rndChoiseElemList(new DatabaseParam().getSSDs()),
                                 GeneratorData.rndChoiseElemList(new DatabaseParam().getScreens()),
                                 GeneratorData.rndChoiseElemList(new DatabaseParam().getColor())
-                            )
-                        );
+                            );
+//             this.database.addLaptops(laptop);
+//                        );
         }
+    }
+
+    public Database getDatabase() {
+        return database;
     }
 }
