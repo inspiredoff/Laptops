@@ -31,6 +31,10 @@ public class Service {
 		this.database.addLaptops(laptop);
 	}
 
+	public void printLaptop(){
+		System.out.println(database.getLaptops());
+	}
+
 	public void createRandomLaptops(){
 		director.createRandomLaptops(15);
 	}

@@ -1,6 +1,4 @@
-package service.model_laptop;
-
-import services.Service;
+package model_laptop;
 
 public class LaptopBuilder implements Builder {
     private int id;
