@@ -1,23 +1,21 @@
-import model_laptop.Director;
-import model_laptop.LaptopBuilder;
-import model_laptop.Model;
-
-import services.Service;
-
 import java.util.List;
+
+import model_laptop.LaptopBuilder;
+import model_laptop.Laptop;
+import service.Director;
+import service.LaptopFilterService;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         LaptopBuilder builder = new LaptopBuilder();
-        Service service = new Service();
-        Director.constructLaptop(builder, "Acer", "Predator", "Intel Core i7", 16, 512, 15, "Black");
-        Model laptop = builder.build();
+        Director director = new Director(builder);
+        LaptopFilterService service = new LaptopFilterService();
+        Laptop laptop = director.constructLaptop("Acer", "Predator", "Intel Core i7", 16, 512, 15, "Black");
         service.addModel(laptop);
 
-        for (int i = 0; i < 10; i++) {
-            Director.constructLaptopRandom(builder,
+        List<Laptop> laptops = director.createRandomLaptops(
                     List.of("Acer",
                             "Apple",
                             "Asus",
@@ -44,12 +42,16 @@ public class Main {
                     List.of("Black", "White", "Red", "Green", "Blue"),
                     10
             );
-            Model laptopRandom = builder.build();
-            service.addModel(laptopRandom);
-        }
+            for (Laptop rnd_laptop : laptops){
+                service.addModel(rnd_laptop);
+            }
 
-        System.out.println(service);
+            var filteredModels = service.filterByBrand("Asus", "LG")
+            .filterByRAM(8)
+            .getFilteredModels();
+            System.out.println(filteredModels);
 
+            service.refresh();
 //        Service filter = new Service(service.);
     }
 

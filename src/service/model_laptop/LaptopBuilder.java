@@ -1,4 +1,4 @@
-package model_laptop;
+package service.model_laptop;
 
 import services.Service;
 
@@ -61,9 +61,9 @@ public class LaptopBuilder implements Builder {
     }
 
     @Override
-    public Model build() {
+    public Laptop build() {
 //        Service service = new Service();
-        Model laptop = new Model(brand, model, CPU, RAM, SSD, screen, color);
+        Laptop laptop = new Laptop(brand, model, CPU, RAM, SSD, screen, color);
         laptop.setId(id);
 //        service.addModel(laptop);
         return laptop;

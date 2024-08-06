@@ -1,6 +1,6 @@
 package model_laptop;
 
-public class Model {
+public class Laptop {
 
     private int id;
     private String brand;
@@ -12,7 +12,7 @@ public class Model {
     private String color;
 
 
-    public Model(String brand, String model, String CPU, int RAM, int SSD, int screen, String color) {
+    public Laptop(String brand, String model, String CPU, int RAM, int SSD, int screen, String color) {
         this.brand = brand;
         this.model = model;
         this.CPU = CPU;
@@ -56,6 +56,19 @@ public class Model {
 
     public String getColor() {
         return color;
+    }
+
+    @Override
+    public String toString() {
+        return "id : " + getId() + "\n" +
+                "Brand : "+getBrand() + "\n"
+                +"model_laptop.Model : "+ getModel() + "\n"
+                +"CPU : " + getCPU() + "\n"
+                + "RAM : " + getRAM() + "\n"
+                + "SSD : " + getSSD() + "\n"
+                + "Screen : " + getScreen() + "\n"
+                + "Color : " + getColor()+"\n"
+                + "--------------------------------------------------"+"\n";
     }
 }
 

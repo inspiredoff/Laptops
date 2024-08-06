@@ -18,5 +18,5 @@ public interface Builder {
 
     Builder setColor(String color);
 
-    public Model build();
+    public Laptop build();
 }
