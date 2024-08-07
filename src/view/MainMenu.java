@@ -1,15 +1,23 @@
 package view;
 
+import view.command.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainMenu {
     private List<Command> commandList;
 
     public MainMenu(ConsoleUI consoleUI) {
         commandList = new ArrayList<>();
-        // commandList.add(new AddStudent(consoleUI));
-        // commandList.add(new GetStudentsInfo(consoleUI));
-        // commandList.add(new SortByName(consoleUI));
-        // commandList.add(new SortByAge(consoleUI));
-        // commandList.add(new Finish(consoleUI));
+        commandList.add(new CreateManualLaptop(consoleUI));
+        commandList.add(new CreateRandomLaptops(consoleUI));
+        commandList.add(new FilterLaptopByBrand(consoleUI));
+        commandList.add(new FilterLaptopByCPU(consoleUI));
+        commandList.add(new FilterLaptopByScreen (consoleUI));
+        commandList.add(new FilterLaptopByRAM(consoleUI));
+        commandList.add(new FilterLaptopBySSD(consoleUI));
+        commandList.add(new FilterLaptopByColor(consoleUI));
     }
 
     public String menu(){
@@ -31,5 +39,4 @@ public class MainMenu {
     public int getSize(){
         return commandList.size();
     }
-
 }

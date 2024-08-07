@@ -13,7 +13,7 @@ public class ConsoleUI implements View{
     private boolean work;
     private MainMenu menu;
 
-    public ConsoleUI(MainMenu menu) {
+    public ConsoleUI() {
         this.scanner = new Scanner(System.in);
         this.presenter = new Presenter(this);
         this.work = true;
@@ -55,13 +55,73 @@ public class ConsoleUI implements View{
     }
 
     public void createRandomLaptops(){
-        
+        System.out.println("Сколько ноутбуков создать?");
+        int length = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Создаем " + length + " ноутбуков");
+        presenter.createRandomLaptops(length);
+    }
+
+    public void createManualLaptops(){
+        System.out.println("Введите бренд ноутбука?");
+        String brand = scanner.nextLine();
+        System.out.println("Введите модель ноутбука?");
+        String model = scanner.nextLine();
+        System.out.println("Введите CPU ноутбука?");
+        String CPU = scanner.nextLine();
+        System.out.println("Введите RAM ноутбука?");
+        String RAMstring = scanner.nextLine();
+        int RAM = Integer.parseInt(RAMstring);
+        System.out.println("Введите SSD ноутбука?");
+        String SSDstring = scanner.nextLine();
+        int SSD = Integer.parseInt(SSDstring);
+        System.out.println("Введите экран ноутбука?");
+        String screenstring = scanner.nextLine();
+        int screen = Integer.parseInt(screenstring);
+        System.out.println("Введите цвет ноутбука?");
+        String color = scanner.nextLine();
+        presenter.createManualLaptop(brand, model, CPU, RAM, SSD, screen, color);
+    }
+
+    public void filterLaptopsByBrand(){
+        System.out.println("Введите бренд ноутбука?");
+        String brand = scanner.nextLine();
+        presenter.filterLaptopsByBrand(brand);
+    }
+
+    public void filterLaptopsByColor(){
+        System.out.println("Введите цвет ноутбука?");
+        String color = scanner.nextLine();
+        presenter.filterLaptopsByColor(color);
+    }
+
+    public void filterLaptopsByCPU(){
+        System.out.println("Введите CPU ноутбука?");
+        String CPU = scanner.nextLine();
+        presenter.filterLaptopsByCPU(CPU);
+    }
+
+    public void filterLaptopsBySSD(){
+        System.out.println("Введите SSD ноутбука?");
+        String SSDstring = scanner.nextLine();
+        int SSD = Integer.parseInt(SSDstring);
+        presenter.filterLaptopsBySSD(SSD);
+    }
+
+    public void filterLaptopsByRAM(){
+        System.out.println("Введите RAM ноутбука?");
+        String RAMstring = scanner.nextLine();
+        int RAM = Integer.parseInt(RAMstring);
+        presenter.filterLaptopsByRAM(RAM);
     }
 
 
-
-
-
+    public void filterLaptopsByScreen(){
+        System.out.println("Введите экран ноутбука?");
+        String screenstring = scanner.nextLine();
+        int screen = Integer.parseInt(screenstring);
+        presenter.filterLaptopsByScreen(screen);
+    }
 
     private void execute(){
         String line = scanner.nextLine();
@@ -73,7 +133,6 @@ public class ConsoleUI implements View{
             }
         }
     }
-    
     private boolean checkTextForInt(String text){
         if (text.matches("[0-9]+")){
             return true;

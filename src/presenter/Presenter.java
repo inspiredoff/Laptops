@@ -4,7 +4,7 @@ import service.service.Service;
 import view.View;
 
 public class Presenter {
-	private View view; 
+	private View view;
 	private Service service;
 
 	public Presenter(View view ){
@@ -30,8 +30,8 @@ public class Presenter {
 	}
 	
 	public void createRandomLaptops(int length){
-		service.createRandomLaptops();
-//	}
+		service.createRandomLaptops(length);
+	}
 
 	public void filterLaptopsByBrand(String brand){
 		service.filterLaptopsByBrand(brand);
