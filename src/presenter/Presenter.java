@@ -29,14 +29,8 @@ public class Presenter {
 									color);
 	}
 	
-//	public void createRandomLaptops(List <String> brands,
-//									List<String> CPUs,
-//									List<Integer> RAMs,
-//									List<Integer> SSDs,
-//									List<Integer> screens,
-//									List<String> colors,
-//									int length){
-//		service.createRandomLaptops(brands, CPUs, RAMs, SSDs, screens, colors, length);
+	public void createRandomLaptops(int length){
+		service.createRandomLaptops();
 //	}
 
 	public void filterLaptopsByBrand(String brand){

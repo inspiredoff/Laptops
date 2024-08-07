@@ -1,5 +1,7 @@
 package service.service;
 
+import java.util.List;
+
 import service.model_laptop.Laptop;
 import service.model_laptop.LaptopBuilder;
 
@@ -32,8 +34,8 @@ public class Service {
 		System.out.println(database.getLaptops());
 	}
 
-	public void createRandomLaptops(){
-		director.createRandomLaptops(15);
+	public void createRandomLaptops(int length){
+		director.createRandomLaptops(length);
 	}
 
 	public void filterLaptopsByBrand(String brand){
@@ -59,5 +61,4 @@ public class Service {
 	public void filterLaptopsByScreen(int Screen){
 		filterService.filterByScreen(Screen);
 	}
-
 }
