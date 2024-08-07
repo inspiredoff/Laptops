@@ -28,6 +28,10 @@ public class Presenter {
 									screen,
 									color);
 	}
+
+	public void printLaptops(){
+		service.printLaptop();
+	}
 	
 	public void createRandomLaptops(int length){
 		service.createRandomLaptops(length);

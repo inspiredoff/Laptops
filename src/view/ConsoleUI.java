@@ -62,6 +62,10 @@ public class ConsoleUI implements View{
         presenter.createRandomLaptops(length);
     }
 
+    public void printLaptops(){
+        presenter.printLaptops();
+    }
+
     public void createManualLaptops(){
         System.out.println("Введите бренд ноутбука?");
         String brand = scanner.nextLine();

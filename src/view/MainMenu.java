@@ -12,6 +12,7 @@ public class MainMenu {
         commandList = new ArrayList<>();
         commandList.add(new CreateManualLaptop(consoleUI));
         commandList.add(new CreateRandomLaptops(consoleUI));
+        commandList.add(new printLaptops(consoleUI));
         commandList.add(new FilterLaptopByBrand(consoleUI));
         commandList.add(new FilterLaptopByCPU(consoleUI));
         commandList.add(new FilterLaptopByScreen (consoleUI));
