@@ -1,4 +1,4 @@
-package service.service;
+package service.model_laptop;
 
 import java.util.List;
 

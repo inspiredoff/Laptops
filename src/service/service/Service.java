@@ -2,9 +2,9 @@ package service.service;
 
 import java.util.List;
 
+import service.model_laptop.DatabaseParam;
 import service.model_laptop.GeneratorData;
 import service.model_laptop.Laptop;
-import service.model_laptop.LaptopBuilder;
 
 public class Service {
 	// private Laptop laptop;
