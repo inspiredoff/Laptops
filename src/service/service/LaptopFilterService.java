@@ -37,17 +37,17 @@ public class LaptopFilterService {
         .orElse(null);
     }
 
-    public LaptopFilterService filterByBrand(String...brands) {
-        initialList.stream().filter(model -> initialList.containsAll(List.of(brands))).forEach(m -> filteredList.add(m));
+    public LaptopFilterService filterByBrand(String brands) {
+        initialList.stream().filter(model -> model.getBrand().equals(brands)).forEach(m -> filteredList.add(m));
         return this;
     }
 
-    public LaptopFilterService filterByCPU(String...CPU) {
-        initialList.stream().filter(model -> initialList.containsAll(List.of(CPU))).forEach(m -> filteredList.add(m));
+    public LaptopFilterService filterByCPU(String CPU) {
+        initialList.stream().filter(model -> model.getCPU().equals(CPU)).forEach(m -> filteredList.add(m));
         return this;
     }
 
-    public LaptopFilterService filterByColor(String...color) {
+    public LaptopFilterService filterByColor(String color) {
         initialList.stream().filter(model -> model.getColor().equals(color)).forEach(m -> filteredList.add(m));    
         return this;
     }
