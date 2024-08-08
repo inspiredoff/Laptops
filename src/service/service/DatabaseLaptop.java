@@ -7,10 +7,10 @@ import java.util.List;
 
 
 
-public class Database {
-    private List<Laptop> laptops = new ArrayList<>();
+public class DatabaseLaptop {
+    private List<Laptop> laptops;
 
-    public Database() {
+    public DatabaseLaptop() {
         laptops = new ArrayList<>();
     }
 
@@ -35,4 +35,6 @@ public class Database {
         }
         return laptop;
     }
+
+
 }

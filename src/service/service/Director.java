@@ -7,11 +7,11 @@ import service.model_laptop.Laptop;
 public class Director {
 
     private Builder builder;
-    private Database database;
+    private DatabaseLaptop database;
 
     public Director (Builder builder) {
         this.builder = builder;
-        this.database = new Database();
+        this.database = new DatabaseLaptop();
     }
 
     public Laptop constructLaptop(String brand,
@@ -52,7 +52,7 @@ public class Director {
         }
     }
 
-    public Database getDatabase() {
+    public DatabaseLaptop getDatabase() {
         return database;
     }
 }

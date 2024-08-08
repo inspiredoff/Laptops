@@ -13,12 +13,14 @@ public class MainMenu {
         commandList.add(new CreateManualLaptop(consoleUI));
         commandList.add(new CreateRandomLaptops(consoleUI));
         commandList.add(new printLaptops(consoleUI));
+        commandList.add(new GetFilteredLaptops(consoleUI));
         commandList.add(new FilterLaptopByBrand(consoleUI));
         commandList.add(new FilterLaptopByCPU(consoleUI));
         commandList.add(new FilterLaptopByScreen (consoleUI));
         commandList.add(new FilterLaptopByRAM(consoleUI));
         commandList.add(new FilterLaptopBySSD(consoleUI));
         commandList.add(new FilterLaptopByColor(consoleUI));
+        commandList.add(new RefreshFilters(consoleUI));
     }
 
     public String menu(){

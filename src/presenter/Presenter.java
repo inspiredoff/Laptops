@@ -32,6 +32,14 @@ public class Presenter {
 	public void printLaptops(){
 		service.printLaptop();
 	}
+
+	public void getFilteredLaptops(){
+		service.getFilteredLaptops();
+	}
+
+	public void refreshFilters(){
+		service.refreshFilter();
+	}
 	
 	public void createRandomLaptops(int length){
 		service.createRandomLaptops(length);

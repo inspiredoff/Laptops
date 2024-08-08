@@ -66,6 +66,14 @@ public class ConsoleUI implements View{
         presenter.printLaptops();
     }
 
+    public void getFilteredLaptops(){
+        presenter.getFilteredLaptops();
+    }
+
+    public void refreshFilters(){
+        presenter.refreshFilters();
+    }
+
     public void createManualLaptops(){
         System.out.println("Введите бренд ноутбука?");
         String brand = scanner.nextLine();
@@ -133,6 +141,7 @@ public class ConsoleUI implements View{
             checkTextForInt(line)){
             int numCommand = Integer.parseInt(line);
             if (checkCommand(numCommand)){
+                System.out.println("\033[2J");
                 menu.execute(numCommand);
             }
         }

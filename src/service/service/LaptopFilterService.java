@@ -12,13 +12,9 @@ public class LaptopFilterService {
     private List<Laptop> initialList;
     private List<Laptop> filteredList;
 
-    public LaptopFilterService() {
-        initialList = new ArrayList<>();
-        filteredList = new ArrayList<>();
-    }
-
-    public LaptopFilterService(List<Laptop> initialList) {
-        this.initialList = initialList;
+    
+    public LaptopFilterService(DatabaseLaptop database) {
+        initialList = database.getLaptops();
         filteredList = new ArrayList<>();
     }
 
